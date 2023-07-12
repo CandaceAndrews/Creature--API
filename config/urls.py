@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from Creature_API import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('creature-list/', views.CreatureListView.as_view(), name='creature-list'),
 ]
