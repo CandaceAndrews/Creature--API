@@ -19,6 +19,6 @@ from Creature_API import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('regular-creature-list/',
-         views.RegularCreatureListView.as_view(), name='regular-creature-list'),
+    path('creature-list/',
+         views.CreatureListView.as_view(), name='creature-list'),
 ]

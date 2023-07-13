@@ -3,16 +3,19 @@ from .models import Creature, MegaCreature
 
 
 class MegaCreatureSerializer(serializers.ModelSerializer):
-    mega_name = serializers.CharField(source='creature.name')
+    name = serializers.SerializerMethodField()
 
     class Meta:
         model = MegaCreature
         fields = (
             'id',
-            'mega_name',
+            'name',
             'description',
             'image_url'
         )
+
+    def get_name(self, obj):
+        return f"Mega {obj.creature.name}"
 
 
 class CreatureSerializer(serializers.ModelSerializer):
