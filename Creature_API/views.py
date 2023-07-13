@@ -7,8 +7,8 @@ from .models import Creature
 from .serializers import CreatureSerializer
 
 
-class CreatureListView(generics.ListAPIView):
-    '''List all animals
+class RegularCreatureListView(generics.ListAPIView):
+    '''List all regular creatures
     '''
     queryset = Creature.objects.all()
     serializer_class = CreatureSerializer
