@@ -1,0 +1,52 @@
+<!-- creatures.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creature List</title>
+</head>
+<body>
+    <h1>Creature List</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Variation Type</th>
+                <th>Description</th>
+                <th>Image</th>
+                <th>Mega Creatures</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for creature in creatures %}
+                <tr>
+                    <td>{{ creature.name }}</td>
+                    <td>{{ creature.variation_type }}</td>
+                    <td>{{ creature.description }}</td>
+                    <td>
+                        {% if creature.image_url %}
+                            <img src="{{ creature.image_url }}" alt="{{ creature.name }} Image" width="100">
+                        {% else %}
+                            No image available
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% for mega_creature in creature.mega_creature.all %}
+                            <p>{{ mega_creature.name }}</p>
+                            <p>{{ mega_creature.description }}</p>
+                            {% if mega_creature.image_url %}
+                                <img src="{{ mega_creature.image_url }}" alt="{{ mega_creature.name }} Image" width="100">
+                            {% else %}
+                                No image available
+                            {% endif %}
+                        {% endfor %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
