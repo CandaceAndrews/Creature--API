@@ -11,7 +11,7 @@ class MegaCreatureSerializer(serializers.ModelSerializer):
             'id',
             'name',
             'description',
-            'image_url'
+            'image'
         )
 
     def get_name(self, obj):
@@ -28,6 +28,6 @@ class CreatureSerializer(serializers.ModelSerializer):
             'name',
             'variation_type',
             'description',
-            'image_url',
+            'image',
             'mega_creature'
         )

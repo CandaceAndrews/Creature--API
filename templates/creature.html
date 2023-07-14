@@ -27,8 +27,8 @@
                     <td>{{ creature.variation_type }}</td>
                     <td>{{ creature.description }}</td>
                     <td>
-                        {% if creature.image_url %}
-                            <img src="{{ creature.image_url }}" alt="{{ creature.name }} Image" width="100">
+                        {% if creature.image %}
+                            <img src="{{ MEDIA_URL }}{{ creature.image }}" alt="{{ creature.name }} Image" width="100">
                         {% else %}
                             No image available
                         {% endif %}
@@ -37,8 +37,8 @@
                         {% for mega_creature in creature.mega_creature.all %}
                             <p>{{ mega_creature.name }}</p>
                             <p>{{ mega_creature.description }}</p>
-                            {% if mega_creature.image_url %}
-                                <img src="{{ mega_creature.image_url }}" alt="{{ mega_creature.name }} Image" width="100">
+                            {% if mega_creature.image %}
+                                <img src="{{ MEDIA_URL }}{{ mega_creature.image }}" alt="{{ mega_creature.name }} Image" width="100">
                             {% else %}
                                 No image available
                             {% endif %}
