@@ -10,9 +10,9 @@ def gallery(request):
     return render(request, 'Creature_API/gallery.html')
 
 
-def photo(request):
+def viewPhoto(request, pk):
     return render(request, 'Creature_API/photo.html')
 
 
-def add(request):
+def addPhoto(request):
     return render(request, 'Creature_API/add.html')
