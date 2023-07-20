@@ -12,6 +12,7 @@
     <style>
         .image-thumbnail {
             height: 200px;
+            object-fit: cover;
         }
     </style>
 </head>
@@ -29,6 +30,9 @@
                         <li class="list-group-item">All</li>
                         <li class="list-group-item">B</li>
                         <li class="list-group-item">C</li>
+
+                        <a href="{% url 'add' %}" class="btn btn-dark btn-block btn-small m-1">Add Photo</a>
+
                     </ul>
                 </div>
                 
@@ -53,7 +57,7 @@
                     <div class="col-md-4">
                         <div class="card my-2">
                             <img class="image-thumbnail" 
-                                src="https://ichef.bbci.co.uk/news/976/cpsprodpb/EF59/production/_123837216_mediaitem123834363.jpg" 
+                                src="https://c10.patreonusercontent.com/4/patreon-media/p/reward/562778/2285129759ee4fad846fb21d38dcd6c7/eyJ3Ijo0MDB9/5.png?token-time=2145916800&token-hash=k1A-7HMbAbQ8wCqf8-pRHDRGw2xsidGcnnPUxQkDOqg%3D" 
                                 alt="Card image cap">
 
                             <div class="card-body">
