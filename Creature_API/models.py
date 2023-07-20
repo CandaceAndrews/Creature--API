@@ -1,6 +1,13 @@
 from django.db import models
 
 
+class Category(models.Model):
+    name = models.CharField(max_length=100, null=False, blank=False)
+
+    def __str__(self):
+        return self.name
+
+
 class Creature(models.Model):
 
     VARIATION_CHOICES = (
@@ -12,9 +19,10 @@ class Creature(models.Model):
     name = models.CharField(max_length=100)
     variation_type = models.CharField(
         choices=VARIATION_CHOICES, default='A', max_length=20)
-    description = models.CharField(max_length=600)
-    image = models.ImageField(
-        upload_to='creature_images/', default="creature_images/default_image.png")
+    description = models.TextField()
+    image = models.ImageField(null=False, blank=False)
+    category = models.ForeignKey(
+        Category, on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
         return f"{self.name} - type: {self.variation_type}"
