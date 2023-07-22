@@ -2,7 +2,7 @@ from django.db import models
 
 
 class Category(models.Model):
-    name = models.CharField(max_length=100, null=False, blank=True)
+    name = models.CharField(max_length=100, null=False, blank=False)
 
     def __str__(self):
         return self.name
@@ -22,7 +22,7 @@ class Creature(models.Model):
     description = models.TextField()
     image = models.ImageField(null=False, blank=False)
     category = models.ForeignKey(
-        Category, on_delete=models.SET_NULL, null=True)
+        Category, on_delete=models.SET_NULL, null=True, blank=True)
 
     def __str__(self):
         return f"{self.name} - type: {self.variation_type}"
@@ -34,7 +34,7 @@ class MegaCreature(models.Model):
     description = models.CharField(max_length=600)
     image = models.ImageField(null=False, blank=False)
     category = models.ForeignKey(
-        Category, on_delete=models.SET_NULL, null=True)
+        Category, on_delete=models.SET_NULL, null=True, blank=True)
 
     def __str__(self):
         return f"{self.creature.name} - type {self.creature.variation_type}"
