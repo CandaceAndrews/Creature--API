@@ -2,7 +2,7 @@ from django.shortcuts import render
 from rest_framework import generics
 from rest_framework.response import Response
 
-from .models import Creature, MegaCreature
+from .models import Creature, MegaCreature, Category
 from .serializers import CreatureSerializer, MegaCreatureSerializer
 
 
@@ -10,9 +10,9 @@ def gallery(request):
     return render(request, 'Creature_API/gallery.html')
 
 
-def viewPhoto(request, pk):
-    return render(request, 'Creature_API/photo.html')
+def viewCreature(request, pk):
+    return render(request, 'Creature_API/creature.html')
 
 
-def addPhoto(request):
-    return render(request, 'Creature_API/add.html')
+def addCreature(request):
+    return render(request, 'Creature_API/addCreature.html')

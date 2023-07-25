@@ -6,8 +6,8 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('', views.gallery, name='gallery'),
-    path('photo/<str:pk>/', views.viewPhoto, name='photo'),
-    path('add/', views.addPhoto, name='add'),
+    path('creature/<str:pk>/', views.viewCreature, name='creature'),
+    path('add/', views.addCreature, name='add'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
