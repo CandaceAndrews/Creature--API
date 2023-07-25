@@ -7,11 +7,15 @@ from .serializers import CreatureSerializer, MegaCreatureSerializer
 
 
 def gallery(request):
-    return render(request, 'Creature_API/gallery.html')
+    categories = Category.objects.all()
+    creatures = Creature.objects.all()
+    context = {'categories': categories, 'creatures': creatures}
+    return render(request, 'Creature_API/gallery.html', context)
 
 
 def viewCreature(request, pk):
-    return render(request, 'Creature_API/creature.html')
+    creature = Creature.objects.get(id=pk)
+    return render(request, 'Creature_API/creature.html', {'creature': creature})
 
 
 def addCreature(request):
